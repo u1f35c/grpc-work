@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package testservice;
+
+import "google/protobuf/empty.proto";
+
+option go_package = "github.com/u1f35c/grpc-test/testservice";
+
+service TestService {
+  rpc GetStatus (google.protobuf.Empty) returns (StatusReply) {}
+  rpc SetStatus (StatusRequest) returns (StatusReply) {}
+}
+
+message StatusRequest {
+  int32 value = 1;
+}
+
+message StatusReply {
+  int32 value = 1;
+}
